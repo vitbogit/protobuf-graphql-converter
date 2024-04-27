@@ -15,7 +15,7 @@ endif
 PROTOPATH := C:\Users\vitbogit\Documents\protoc\include
 
 example: command 
-	make -C ./example/greeter generate
+	make -C ./examples/greeter generate
 
 command: clean
 	cd ${GRAPHQL_CMD} && \
