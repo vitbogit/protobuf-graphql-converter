@@ -1,17 +1,9 @@
-.PHONY: build
+.PHONY: generate
 
-build:
+generate:
 	protoc \
 	  -I. \
 		-I../../include/graphql \
-		--plugin=../../dist/protobuf-to-graphql \
-		--graphql_out=verbose:./greeter \
+		--plugin=../../dist/protoc-gen-graphql-schema \
+		--graphql-schema_out=./ \
 	  greeter.proto
-
-# build:
-# 	protoc \
-# 	  -I. \
-# 		-I../../include/graphql \
-# 		--plugin=../../dist/protoc-gen-graphql \
-# 		--graphql_out=verbose:./greeter \
-# 	  greeter.proto

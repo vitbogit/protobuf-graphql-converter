@@ -1,6 +1,6 @@
 .PHONY: command clean
 
-GRAPHQL_CMD=protobuf-to-graphql
+GRAPHQL_CMD=protoc-gen-graphql-schema
 #GRAPHQL_CMD=protoc-gen-graphql
 VERSION=$(or ${tag}, dev)
 UNAME:=$(shell uname)
@@ -15,7 +15,7 @@ endif
 PROTOPATH := C:\Users\vitbogit\Documents\protoc\include
 
 example: command 
-	make -C ./example/greeter build
+	make -C ./example/greeter generate
 
 command: clean
 	cd ${GRAPHQL_CMD} && \

@@ -8,7 +8,7 @@ syntax = "proto3";
 
 package graphql;
 
-option go_package = "github.com/ysugimoto/grpc-graphql-gateway/graphql";
+option go_package = "github.com/vitbogit/protobuf-graphql-converter/graphql";
 
 import "google/protobuf/descriptor.proto";
 
