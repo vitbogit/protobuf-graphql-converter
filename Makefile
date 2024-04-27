@@ -1,6 +1,7 @@
 .PHONY: command clean
 
-GRAPHQL_CMD=protoc-gen-graphql
+GRAPHQL_CMD=protobuf-to-graphql
+#GRAPHQL_CMD=protoc-gen-graphql
 VERSION=$(or ${tag}, dev)
 UNAME:=$(shell uname)
 
@@ -11,7 +12,12 @@ ifeq ($(UNAME), Linux)
 	PROTOPATH := /usr/local/include
 endif
 
-command: plugin clean
+PROTOPATH := C:\Users\vitbogit\Documents\protoc\include
+
+example: command 
+	make -C ./example/greeter build
+
+command: clean
 	cd ${GRAPHQL_CMD} && \
 		go build \
 			-ldflags "-X main.version=${VERSION}" \
@@ -22,7 +28,7 @@ plugin:
 		-I include/graphql \
 		--go_out=./graphql \
 		include/graphql/graphql.proto
-	mv graphql/github.com/ysugimoto/grpc-graphql-gateway/graphql/graphql.pb.go graphql/
+	mv graphql\github.com\ysugimoto\grpc-graphql-gateway\graphql\graphql.pb.go graphql
 	rm -rf graphql/github.com
 
 lint:
@@ -39,3 +45,4 @@ clean:
 all: clean build
 	cd ${GRAPHQL_CMD} && GOOS=darwin GOARCH=amd64 go build -ldflags "-X main.version=${VERSION}" -o ../dist/${GRAPHQL_CMD}.darwin
 	cd ${GRAPHQL_CMD} && GOOS=linux GOARCH=amd64 go build -ldflags "-X main.version=${VERSION}" -o ../dist/${GRAPHQL_CMD}.linux
+

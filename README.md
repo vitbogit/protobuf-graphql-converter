@@ -1,3 +1,24 @@
+LAST UPDATE: просто сделай в корневой папке make example - я ее так настроил чтобы ребилдила генератор и example сразу запускала
+
+короче 
+
+используй MinGw
+
+в корне проекта запускаешь make command
+
+потом в папке example/greeter (например) запускаешь make build
+
+тока следи чтобы в example/greeter была папка создана greeter
+
+ну вот и все 
+
+а бинарник если че лежит в корень/dist
+
+
+
+
+
+
 # grpc-graphql-gateway
 
 [![CircleCI](https://circleci.com/gh/ysugimoto/grpc-graphql-gateway/tree/master.svg?style=svg)](https://circleci.com/gh/ysugimoto/grpc-graphql-gateway/tree/master)

@@ -8,10 +8,10 @@ import (
 	"os"
 
 	// nolint: staticcheck
-	"github.com/golang/protobuf/proto"
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 	"github.com/ysugimoto/grpc-graphql-gateway/protoc-gen-graphql/generator"
 	"github.com/ysugimoto/grpc-graphql-gateway/protoc-gen-graphql/spec"
+	"google.golang.org/protobuf/proto"
 )
 
 var version = "dev"
