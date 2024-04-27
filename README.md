@@ -2,17 +2,15 @@
 
 `protobuf-graphql-converter` is a protoc plugin that generates graphql schema from Protocol Buffers schema
 
-## Motivation
+## TODO: Motivation
 
-Владимир может вам лично объяснить, я тут повторять не буду.
 
-## Installation
 
-Разберетесь
+## TODO: Installation
 
-## Usage
 
-### ...
+
+## TODO: Usage
 
 
 ### Example
