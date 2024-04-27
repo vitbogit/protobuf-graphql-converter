@@ -5,10 +5,10 @@ import (
 	"strings"
 
 	// nolint: staticcheck
-	"github.com/golang/protobuf/proto"
 	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/iancoleman/strcase"
 	"github.com/vitbogit/protobuf-graphql-converter/graphql"
+	"google.golang.org/protobuf/proto"
 )
 
 // Field spec wraps FieldDescriptorProto with keeping file info
@@ -19,10 +19,11 @@ type Field struct {
 
 	paths []int
 
-	DependType    interface{}
-	IsCyclic      bool
-	isCamel       bool
-	forceRequired bool
+	DependType     interface{}
+	IsCyclic       bool
+	isCamel        bool
+	forceRequired  bool
+	markedOptional bool
 }
 
 func NewField(
@@ -34,19 +35,20 @@ func NewField(
 
 	var o *graphql.GraphqlField
 	if opts := d.GetOptions(); opts != nil {
-		if ext, err := proto.GetExtension(opts, graphql.E_Field); err == nil {
-			if field, ok := ext.(*graphql.GraphqlField); ok {
-				o = field
-			}
+		ext := proto.GetExtension(opts, graphql.E_Field)
+
+		if field, ok := ext.(*graphql.GraphqlField); ok {
+			o = field
 		}
 	}
 
 	return &Field{
-		descriptor: d,
-		Option:     o,
-		File:       f,
-		paths:      paths,
-		isCamel:    isCamel,
+		descriptor:     d,
+		Option:         o,
+		File:           f,
+		paths:          paths,
+		isCamel:        isCamel,
+		markedOptional: d.GetProto3Optional(),
 	}
 }
 
@@ -85,14 +87,13 @@ func (f *Field) Label() descriptor.FieldDescriptorProto_Label {
 }
 
 func (f *Field) IsRequired() bool {
-	if f.forceRequired {
-		return true
-	}
+	// if f.forceRequired {
+	// 	return true
+	// }
 
-	if f.Option == nil {
-		return false
-	}
-	return f.Option.GetRequired()
+	return !f.markedOptional
+
+	//return f.Option.GetRequired()
 }
 
 func (f *Field) IsOmit() bool {

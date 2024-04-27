@@ -7,10 +7,10 @@ import (
 	"log"
 	"os"
 
-	// nolint: staticcheck
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 	"github.com/vitbogit/protobuf-graphql-converter/protoc-gen-graphql-schema/generator"
 	"github.com/vitbogit/protobuf-graphql-converter/protoc-gen-graphql-schema/spec"
+	"github.com/vitbogit/protobuf-graphql-converter/protoc-gen-graphql-schema/templates"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -26,7 +26,14 @@ func main() {
 
 	var genError error
 
-	resp := &plugin.CodeGeneratorResponse{}
+	// Надо добавить поддержку optional полей в генераторе для версии protobuf 3 и выше
+	// Должно быть включено: plugin.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL
+	// В битовой маске это просто единица
+	// Подробнее:
+	// https://pkg.go.dev/google.golang.org/protobuf/types/pluginpb#CodeGeneratorResponse
+	var responseFeaturesMask uint64 = 1
+
+	resp := &plugin.CodeGeneratorResponse{SupportedFeatures: &responseFeaturesMask}
 	defer func() {
 		// If some error has been occurred in generate process,
 		// add error message to plugin response
@@ -82,7 +89,7 @@ func main() {
 		}
 	}
 	if len(ftg) > 0 {
-		genFiles, err := g.Generate(goTemplate, ftg)
+		genFiles, err := g.Generate(templates.GraphqlTemplate, ftg)
 		if err != nil {
 			genError = err
 			return

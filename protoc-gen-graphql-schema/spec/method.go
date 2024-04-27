@@ -4,9 +4,9 @@ import (
 	"strings"
 
 	// nolint: staticcheck
-	"github.com/golang/protobuf/proto"
 	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/vitbogit/protobuf-graphql-converter/graphql"
+	"google.golang.org/protobuf/proto"
 )
 
 // Method spec wraps MethodDescriptorProto with GraphqlQuery and GraphqlMutation options.
@@ -27,10 +27,9 @@ func NewMethod(
 
 	var schema *graphql.GraphqlSchema
 	if opts := m.GetOptions(); opts != nil {
-		if ext, err := proto.GetExtension(opts, graphql.E_Schema); err == nil {
-			if v, ok := ext.(*graphql.GraphqlSchema); ok {
-				schema = v
-			}
+		ext := proto.GetExtension(opts, graphql.E_Schema)
+		if v, ok := ext.(*graphql.GraphqlSchema); ok {
+			schema = v
 		}
 	}
 
