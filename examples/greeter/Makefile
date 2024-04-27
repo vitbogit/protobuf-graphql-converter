@@ -1,6 +1,6 @@
 .PHONY: generate
 
-PLUGIN_DIST_PATH = ../../dist/protoc-gen-graphql-schema
+PLUGIN_DIST_PATH := ../../dist/protoc-gen-graphql-schema
 
 generate:
 	protoc \

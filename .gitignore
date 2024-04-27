@@ -15,10 +15,6 @@
 # vendor/
 #
 
-dist/protoc-gen-graphql*
-example/**/google
-example/**/graphql
-example/**/schema.graphql
-example/**/github.com
-example/**/app
+dist/protoc-gen-graphql-schema*
 playground
+runtime
