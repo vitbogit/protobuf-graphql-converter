@@ -23,12 +23,17 @@ Implemented:
  ```make plugin```
  This command will rebuild plugin\`s core, defined in include/graphql/graphql.proto file and further stored in graphql/graphql.pb.go file.
 
+ TODO: Windows support. Make commands doesn`t work... 
+
 3) To obtain executable of plugin, run:
  ```make distribute```
 
 Now you should have your plugin\`s executable in dist folder!
 
+ TODO: Windows support. Make commands doesn`t work... 
+
 4) (recommended) Move plugin\`s executable to your $(GOBIN) folder.
+
 TODO: Windows support. Now you need to manually add ".exe" to the file name!
 
 5) (recommended) Move include/graphql/graphql.proto file to your protobuf files folder
