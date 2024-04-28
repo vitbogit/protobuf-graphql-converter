@@ -12,7 +12,7 @@ Implemented:
 
 Planning:
 
-- use google translate to make README actually readable for everyone
+- use google translate to make README actually READable
 - ...
 
 ## ⬇️ Installation
