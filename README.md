@@ -12,9 +12,6 @@ Implemented:
 
 ## Installation
 
-Plugin depends on new changes made to protobuf and graphql, therefore
-there are several installations methods:
-
 ### TODO: Simple installation using "go get"
 
 ### Full installation 
