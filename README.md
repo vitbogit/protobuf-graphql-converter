@@ -52,7 +52,7 @@ If you did steps 4 and 5 of installation guide, you can now simply run:
 protoc -I. --graphql-schema_out=YOUR_OUT_FOLDER YOUR_PROTO_FILE.proto
 ```
 
-That will result to generating GraphQL schema out of YOUR_PROTO_FILE.proto. Also make sure that YOUR_OUT_FOLDER exist (or simply provide "./").
+That will result to generating GraphQL schema out of YOUR_PROTO_FILE.proto. Also make sure that YOUR_OUT_FOLDER exists (or simply provide "./").
 
 ### How to run examples
 
