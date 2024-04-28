@@ -17,48 +17,37 @@ there are several installations methods:
 
 ### TODO: Simple installation using "go get"
 
-### Another simple installation (not rebuilding plugin`s core)
-
-1) Clone repository:
-```git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
-
-2) Run with bash:
- ```make distribute```
-
-Now you should have your plugin`s executable in ./dist folder!
-
-3) TODO: move executable to go/bin folder
-
 ### Full installation 
 
 1) Clone repository:
 ```git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
 
-2) Run with bash:
+2) (not recomended, risky) If you want to rebuild whole plugin`s core, then run:
  ```make plugin```
  This command will rebuild plugin`s core, defined in ./include/graphql/graphql.proto file.
 
-3) If you are lucky (that means, if the plugin`s logic is compatible with current protobuf
-and graphql standards), then this command will work:
+3) To obtain executable of plugin, run:
  ```make distribute```
 
 Now you should have your plugin`s executable in ./dist folder!
 
-4) TODO: install executable to go/bin folder
+4) (recomended) Move plugin`s executable to your $(GOBIN) folder.
+TODO: Windows support. Now you need to manually add ".exe" to the file name!
+
+5) (recomended) Move ./include/graphql/graphql.proto to your protobuf files folder
 
 ## Usage
 
-To use plugin, protoc needs to know:
+To use plugin, protoc needs "to know":
 - path to plugin`s executable (plugin might just be in go/bin)
 - path to graphql.proto file (which is at first located in my project at ./include/graphql/graphql.proto)
 
-For simplicity, you can just copy graphql.proto file to your protobufs schemas.
-In case you have moved graphql.proto file to your protobuf and not installed plugin to go/bin, you can copy plugin`s executable to same folder as protobuf files and then just run:
+If you did steps 4 and 5 from installation guide, you can now simply run:
 
 ```
-protoc -I. --plugin=./protoc-gen-graphql-schema --graphql-schema_out=./ YOUR_PROTO_NAME.proto
+protoc -I. --graphql-schema_out=YOUR_OUT_FOLDER YOUR_PROTO_FILE.proto
 ```
 
 ## Example
 
-If everything is installed, just run `make example` in project`s root directory
+If everything is installed, fast way to run example is to run `make example` in project`s root directory or to run `make generate` in examples/greeter directory.
