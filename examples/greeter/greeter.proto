@@ -28,8 +28,16 @@ service Greeter {
   }
 }
 
+message BigExample {
+  string str = 1;
+  string str_req = 2 [(graphql.field) = {required: true}];
+  optional string str_opt = 3;
+  int64 num = 4;
+  int64 num_req = 5 [(graphql.field) = {required: true}];
+  optional int64 num_opt = 6;
+}
+
 message HelloRequest {
-  // Below line means the "name" field is required in GraphQL argument
   string name = 1 [(graphql.field) = {required: true}];
 }
 
@@ -38,7 +46,6 @@ message HelloReply {
 }
 
 message GoodbyeRequest {
-  // Below line means the "name" field is required in GraphQL argument
   string name = 1 [(graphql.field) = {required: true}];
 }
 

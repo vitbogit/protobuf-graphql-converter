@@ -15,6 +15,15 @@ type GoodbyeRequest {
 type GoodbyeReply {
 	message: String!
 }
+
+type BigExample {
+	str: String!
+	str_req: String!
+	str_opt: String
+	num: Int!
+	num_req: Int!
+	num_opt: Int
+}
  
 enum SecondEnum {
 	C
