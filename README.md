@@ -6,14 +6,17 @@
 
 Implemented:
 
-- simple "protobuf message" -> "graphql type" conversion 
+- simple "protobuf message" -> "graphql type" conversion, including:
+
+    - lower_snake_case field names to camelCase field names conversion;
+    - optional fields handling (generator\`s rule is: resulting field in GraphQL\`s type marked non-nullable only if it\`s marked as optional in initial proto file)
 
 - simple "protobuf enum" -> "graphql enum" conversion
 
 Planning:
 
+- conversion improvements 
 - better english in README
-- ...
 
 ## ⬇️ Installation
 

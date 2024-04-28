@@ -22,7 +22,8 @@ type Params struct {
 
 func NewParams(p string) (*Params, error) {
 	params := &Params{
-		Excludes: []*regexp.Regexp{},
+		Excludes:       []*regexp.Regexp{},
+		FieldCamelCase: true,
 	}
 	if p == "" {
 		return params, nil
@@ -47,8 +48,8 @@ func NewParams(p string) (*Params, error) {
 				return nil, errors.New("failed to compile regex for exclude argument " + kv[1])
 			}
 			params.Excludes = append(params.Excludes, regex)
-		case "field_camel":
-			params.FieldCamelCase = true
+		// case "field_camel":
+		// 	params.FieldCamelCase = true
 		case "paths":
 			if len(kv) == 1 {
 				return nil, errors.New("argument " + kv[0] + " must have value")
