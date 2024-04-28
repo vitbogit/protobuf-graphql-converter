@@ -10,6 +10,11 @@ Implemented:
 
 - simple "protobuf enum" -> "graphql enum" conversion
 
+Planning:
+
+- use google translate to make README actually readable for everyone
+- ...
+
 ## ⬇️ Installation
 
 ### TODO: Simple installation using "go get"
