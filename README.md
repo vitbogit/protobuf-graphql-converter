@@ -19,32 +19,34 @@ Implemented:
 1) Clone repository:
 ```git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
 
-2) (not recomended, risky) If you want to rebuild whole plugin`s core, then run:
+2) (not recommended, risky) If you want to rebuild whole plugin\`s core, then run:
  ```make plugin```
- This command will rebuild plugin\`s core, defined in ./include/graphql/graphql.proto file.
+ This command will rebuild plugin\`s core, defined in include/graphql/graphql.proto file and further stored in graphql/graphql.pb.go file.
 
 3) To obtain executable of plugin, run:
  ```make distribute```
 
-Now you should have your plugin\`s executable in ./dist folder!
+Now you should have your plugin\`s executable in dist folder!
 
-4) (recomended) Move plugin\`s executable to your $(GOBIN) folder.
+4) (recommended) Move plugin\`s executable to your $(GOBIN) folder.
 TODO: Windows support. Now you need to manually add ".exe" to the file name!
 
-5) (recomended) Move ./include/graphql/graphql.proto to your protobuf files folder
+5) (recommended) Move include/graphql/graphql.proto file to your protobuf files folder
 
 ## Usage
 
-To use plugin, protoc needs "to know":
-- path to plugin\`s executable (plugin might just be in go/bin)
-- path to graphql.proto file (which is at first located in my project at ./include/graphql/graphql.proto)
+To use plugin, protoc needs:
+- path to plugin\`s executable (if you\`ve done recommended installation steps, then plugin is now in $(GOBIN) so it\`s reachable with PATH, otherwise path to plugin\`s executable should be provided with --plugin=..., when running protoc command)
+- path to graphql.proto file (which is at first located in my project at ./include/graphql/graphql.proto, if you\`ve done recommended installation steps it\`s now in one folder with your protobuf files)
 
-If you did steps 4 and 5 from installation guide, you can now simply run:
+If you did steps 4 and 5 of installation guide, you can now simply run:
 
 ```
 protoc -I. --graphql-schema_out=YOUR_OUT_FOLDER YOUR_PROTO_FILE.proto
 ```
 
+That will result to generating GraphQL schema out of YOUR_PROTO_FILE.proto
+
 ## Example
 
-If everything is installed, fast way to run example is to run `make example` in project`s root directory or to run `make generate` in examples/greeter directory.
+If everything is installed, fast way to run example is to run `make example` in project\`s root directory or to run `make generate` in examples/greeter directory.
