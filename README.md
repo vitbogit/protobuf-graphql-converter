@@ -40,7 +40,7 @@ TODO: Windows support. Now you need to manually add ".exe" to the file name!
 
 ## 🚀 Usage
 
-### Using installed plugin
+### How to use installed plugin
 
 To use plugin, protoc needs:
 - path to plugin\`s executable (if you\`ve done recommended installation steps, then plugin is now in $(GOBIN) so it\`s reachable with PATH, otherwise path to plugin\`s executable should be provided with --plugin=..., when running protoc command)
@@ -54,6 +54,6 @@ protoc -I. --graphql-schema_out=YOUR_OUT_FOLDER YOUR_PROTO_FILE.proto
 
 That will result to generating GraphQL schema out of YOUR_PROTO_FILE.proto
 
-### Runnning example
+### How to run examples
 
 If everything is installed, fast way to run example is to run `make example` in project\`s root directory or to run `make generate` in examples/greeter directory.
