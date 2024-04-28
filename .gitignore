@@ -17,4 +17,4 @@
 
 dist/protoc-gen-graphql-schema*
 playground
-runtime
+runtime/
