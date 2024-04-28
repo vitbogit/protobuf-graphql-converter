@@ -56,4 +56,4 @@ That will result to generating GraphQL schema out of YOUR_PROTO_FILE.proto. Also
 
 ### How to run examples
 
-If everything is installed, fast way to run example is to run `make example` in project\`s root directory or to run `make generate` in examples/greeter directory.
+If everything is installed, fast way to run example is to run `make example` in project\`s root directory OR to run `make generate` in examples/greeter directory.
