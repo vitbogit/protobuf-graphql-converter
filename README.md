@@ -20,23 +20,23 @@ there are several installations methods:
 ### Another simple installation (not rebuilding plugin`s core)
 
 1) Clone repository:
-```git clone git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
+```git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
 
 2) Run with bash:
  ```make distribute```
 
 Now you should have your plugin`s executable in ./dist folder!
 
-3) TODO: install executable to go/bin folder
+3) TODO: move executable to go/bin folder
 
 ### Full installation 
 
 1) Clone repository:
-```git clone git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
+```git clone https://github.com/vitbogit/protobuf-graphql-converter.git```
 
 2) Run with bash:
  ```make plugin```
- That will rebuild plugin`s core from ./include/graphql/graphql.proto file.
+ This command will rebuild plugin`s core, defined in ./include/graphql/graphql.proto file.
 
 3) If you are lucky (that means, if the plugin`s logic is compatible with current protobuf
 and graphql standards), then this command will work:
