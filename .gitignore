@@ -18,3 +18,4 @@
 dist/protoc-gen-graphql-schema*
 playground
 runtime/
+examples/greeter/greeter.graphql
