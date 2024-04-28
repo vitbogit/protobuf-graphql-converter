@@ -21,14 +21,14 @@ Implemented:
 
 2) (not recomended, risky) If you want to rebuild whole plugin`s core, then run:
  ```make plugin```
- This command will rebuild plugin`s core, defined in ./include/graphql/graphql.proto file.
+ This command will rebuild plugin\`s core, defined in ./include/graphql/graphql.proto file.
 
 3) To obtain executable of plugin, run:
  ```make distribute```
 
-Now you should have your plugin`s executable in ./dist folder!
+Now you should have your plugin\`s executable in ./dist folder!
 
-4) (recomended) Move plugin`s executable to your $(GOBIN) folder.
+4) (recomended) Move plugin\`s executable to your $(GOBIN) folder.
 TODO: Windows support. Now you need to manually add ".exe" to the file name!
 
 5) (recomended) Move ./include/graphql/graphql.proto to your protobuf files folder
@@ -36,7 +36,7 @@ TODO: Windows support. Now you need to manually add ".exe" to the file name!
 ## Usage
 
 To use plugin, protoc needs "to know":
-- path to plugin`s executable (plugin might just be in go/bin)
+- path to plugin\`s executable (plugin might just be in go/bin)
 - path to graphql.proto file (which is at first located in my project at ./include/graphql/graphql.proto)
 
 If you did steps 4 and 5 from installation guide, you can now simply run:
