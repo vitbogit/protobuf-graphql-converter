@@ -20,16 +20,16 @@ var printVersion = flag.Bool("v", false, "show binary version")
 func main() {
 	flag.Parse()
 	if *printVersion {
-		io.WriteString(os.Stdout, version) // nolint: errcheck
+		io.WriteString(os.Stdout, version)
 		os.Exit(0)
 	}
 
 	var genError error
 
-	// Надо добавить поддержку optional полей в генераторе для версии protobuf 3 и выше
-	// Должно быть включено: plugin.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL
-	// В битовой маске это просто единица
-	// Подробнее:
+	// To add support of optional fields (protobuf version 3),
+	// we shoudld enable plugin.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL.
+	// In bit mask it`s just 1.
+	// Read more:
 	// https://pkg.go.dev/google.golang.org/protobuf/types/pluginpb#CodeGeneratorResponse
 	var responseFeaturesMask uint64 = 1
 
