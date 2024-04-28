@@ -36,7 +36,7 @@ Now you should have your plugin\`s executable in dist folder!
 
 TODO: Windows support. Now you need to manually add ".exe" to the file name!
 
-5) (recommended) Move include/graphql/graphql.proto file to your protobuf files folder
+5) (recommended) Move include/graphql/graphql.proto file to your project`s protobuf files folder
 
 ## 🚀 Usage
 
