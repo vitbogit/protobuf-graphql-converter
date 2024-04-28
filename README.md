@@ -2,7 +2,7 @@
 
 `protobuf-graphql-converter` is a protoc plugin that generates GraphQL schema from Protocol Buffers schema.
 
-## Current capability
+## 💪 Current capability
 
 Implemented:
 
@@ -10,7 +10,7 @@ Implemented:
 
 - simple "protobuf enum" -> "graphql enum" conversion
 
-## Installation
+## ⬇️ Installation
 
 ### TODO: Simple installation using "go get"
 
@@ -33,7 +33,9 @@ TODO: Windows support. Now you need to manually add ".exe" to the file name!
 
 5) (recommended) Move include/graphql/graphql.proto file to your protobuf files folder
 
-## Usage
+## 🚀 Usage
+
+### Using installed plugin
 
 To use plugin, protoc needs:
 - path to plugin\`s executable (if you\`ve done recommended installation steps, then plugin is now in $(GOBIN) so it\`s reachable with PATH, otherwise path to plugin\`s executable should be provided with --plugin=..., when running protoc command)
@@ -47,6 +49,6 @@ protoc -I. --graphql-schema_out=YOUR_OUT_FOLDER YOUR_PROTO_FILE.proto
 
 That will result to generating GraphQL schema out of YOUR_PROTO_FILE.proto
 
-## Example
+### Runnning example
 
 If everything is installed, fast way to run example is to run `make example` in project\`s root directory or to run `make generate` in examples/greeter directory.
