@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/ysugimoto/grpc-graphql-gateway
+name: buf.build/vitbogit/protobuf-graphql-converter
 breaking:
   use:
     - FILE

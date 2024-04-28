@@ -1,7 +1,9 @@
 .PHONY: generate
 
+# Path to plugin`s executable
 PLUGIN_DIST_PATH := ../../dist/protoc-gen-graphql-schema
 
+# Generate graphql schema from protobuf schema
 generate:
 	protoc \
 	  -I. \
