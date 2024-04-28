@@ -65,13 +65,10 @@ func New(files []*spec.File, args *spec.Params) *Generator {
 
 func (g *Generator) Generate(tmpl string, fs []string) ([]*plugin.CodeGeneratorResponse_File, error) {
 
-	//log.Println("g.Generate")
-
 	services, err := g.analyzeServices()
 	if err != nil {
 		return nil, err
 	}
-	//log.Println("g.Generate: services analyzed")
 
 	var outFiles []*plugin.CodeGeneratorResponse_File
 	for _, f := range g.files {
@@ -106,8 +103,6 @@ func (g *Generator) generateFile(file *spec.File, tmpl string, services []*spec.
 	*plugin.CodeGeneratorResponse_File,
 	error,
 ) {
-
-	//log.Println("g.generateFile")
 
 	var types, inputs, interfaces []*spec.Message
 	var enums []*spec.Enum
@@ -231,8 +226,6 @@ func (g *Generator) generateFile(file *spec.File, tmpl string, services []*spec.
 		Services:    services,
 	}
 
-	//log.Println("Going to fill buf...")
-
 	buf := new(bytes.Buffer)
 	if tmpl, err := template.New("go").Parse(tmpl); err != nil {
 		return nil, err
@@ -240,19 +233,7 @@ func (g *Generator) generateFile(file *spec.File, tmpl string, services []*spec.
 		return nil, err
 	}
 
-	//log.Println("Going to get out...")
-
 	out := buf.Bytes()
-
-	// Now no need to convet to go code
-	///
-	// out, err := format.Source(buf.Bytes())
-	// if err != nil {
-	// 	os.WriteFile("/tmp/"+root.Name+".go", buf.Bytes(), 0666) // nolint: errcheck
-	// 	return nil, err
-	// }
-
-	//log.Println("Going to contsruct plugin.CodeGeneratorResponse_File...")
 
 	// If paths=source_relative option is provided, put generated file relatively
 	if g.args.IsSourceRelative() {

@@ -70,10 +70,6 @@ func main() {
 		return
 	}
 
-	if args.FieldCamelCase {
-		log.Println("[INFO] field_camel option is provided. All type fields are transform to camelcase.")
-	}
-
 	// We're dealing with each descriptors to out wrapper struct
 	// in order to access easily plugin options, package name, comment, etc...
 	var files []*spec.File
