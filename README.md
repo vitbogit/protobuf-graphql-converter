@@ -15,7 +15,7 @@ Implemented:
 Plugin depends on new changes made to protobuf and graphql, therefore
 there are several installations methods:
 
-### TODO: Using "go get"
+### TODO: Simple installation using "go get"
 
 ### Another simple installation (not rebuilding plugin`s core)
 
